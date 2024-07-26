@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/list-superheroes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ creator?.fullName }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button
+        (click)="changeLanguage('en')"
+        [disabled]="currentLang === 'en'"
+        >EN</ion-button
+      >
+      <ion-button
+        (click)="changeLanguage('es')"
+        [disabled]="currentLang === 'es'"
+        >ES</ion-button
+      >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="creator">
+    <img
+      [src]="creator.thumbnail.path + '.' + creator.thumbnail.extension"
+      (load)="onImageLoad($event)"
+      [ngClass]="{ 'image-loaded': imageLoaded }"
+    />
+    <ion-card-header>
+      <ion-card-title
+        >{{ 'DETAILS.NAME' | translate }}: {{ creator.fullName
+        }}</ion-card-title
+      >
+    </ion-card-header>
+    <ion-card-content>
+      <h3>{{ 'DETAILS.OTHER_INFORMATION' | translate }}</h3>
+      <ion-grid>
+        <ion-row>
+          <ion-col>{{ 'DETAILS.COMICS' | translate }}</ion-col>
+          <ion-col>{{ creator.comics.available }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>{{ 'DETAILS.SERIES' | translate }}</ion-col>
+          <ion-col>{{ creator.series.available }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>{{ 'DETAILS.STORIES' | translate }}</ion-col>
+          <ion-col>{{ creator.stories.available }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

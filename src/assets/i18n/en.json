@@ -1,0 +1,10 @@
+{
+  "TITLE": "List of superheroes",
+  "DETAILS": {
+    "NAME": "Name",
+    "COMICS": "Number of Comics available:",
+    "SERIES": "Number of Series available:",
+    "STORIES": "Number of Stories available:",
+    "OTHER_INFORMATION": "Other Information"
+  }
+}

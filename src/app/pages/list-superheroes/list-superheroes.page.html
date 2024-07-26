@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'TITLE' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button
+        (click)="changeLanguage('en')"
+        [disabled]="currentLang === 'en'"
+        >EN</ion-button
+      >
+      <ion-button
+        (click)="changeLanguage('es')"
+        [disabled]="currentLang === 'es'"
+        >ES</ion-button
+      >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let creator of creators" (click)="goToDetails(creator)">
+      <ion-thumbnail slot="start">
+        <img
+          [src]="creator.thumbnail.path + '.' + creator.thumbnail.extension"
+        />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ creator.fullName }}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
